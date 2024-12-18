@@ -17,7 +17,8 @@ def main(args):
 
     pic_path = args.source_image
     audio_path = args.driven_audio
-    save_dir = os.path.join(args.result_dir, strftime("%Y_%m_%d_%H.%M.%S"))
+    video_name = args.video_name
+    save_dir = os.path.join(args.result_dir, video_name)
     os.makedirs(save_dir, exist_ok=True)
     pose_style = args.pose_style
     device = args.device
@@ -92,6 +93,8 @@ def main(args):
 
     if not args.verbose:
         shutil.rmtree(save_dir)
+    
+    return save_dir+'.mp4'
 
     
 if __name__ == '__main__':
